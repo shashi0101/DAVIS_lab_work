@@ -1,0 +1,55 @@
+Documentation: Reading a Text File from GitHub into Python using Google
+Colab
+
+1.  Objective To read a text file stored in a GitHub repository and
+    process it using Python in Google Colab.
+
+2.  Introduction Google Colab is a cloud-based platform that allows
+    execution of Python code. GitHub is used for hosting code and files.
+    This integration allows direct access to files without downloading
+    them manually.
+
+3.  Prerequisites
+
+-   Google account
+-   Public GitHub repository
+-   Basic Python knowledge
+-   Internet connection
+
+4.  Method 1: Using Raw GitHub URL Steps: Open file → Click Raw → Copy
+    URL → Use Python
+
+import requests url =
+“https://raw.githubusercontent.com/username/repository/main/file.txt”
+response = requests.get(url) data = response.text print(data)
+
+5.  Method 2: Using urllib
+
+from urllib.request import urlopen url =
+“https://raw.githubusercontent.com/username/repository/main/file.txt”
+response = urlopen(url) data = response.read().decode(‘utf-8’)
+print(data)
+
+6.  Method 3: Cloning Repository
+
+!git clone https://github.com/username/repository.git with
+open(‘/content/repository/file.txt’, ‘r’) as file: data = file.read()
+print(data)
+
+7.  Comparison Method | Use Case | Advantage Raw URL | Single file |
+    Fast and simple urllib | No library | Built-in Clone | Multiple
+    files | Full access
+
+8.  Advantages
+
+-   No manual download needed
+-   Cloud-based processing
+-   Time-saving
+
+9.  Limitations
+
+-   Only public repos (without auth)
+-   Needs internet connection
+
+10. Conclusion Reading files from GitHub into Google Colab is efficient
+    and simplifies workflows.
